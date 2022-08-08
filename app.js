@@ -2,17 +2,19 @@ const express = require(`express`);
 const app = express()
 require('dotenv').config()
 app.use(express.json());
+
+//Route imports
+const departmentsRouter = require("./routes/departments");
+
+//Database imports
 const dbConfig = require(`./config/odbcConnection`);
 const db = require("./database/db2");
 
 // Environment variable for network port or default to 3000
 const port = process.env.PORT || 3000;
 
-//Route imports
-const customersRouter = require("./routes/customers");
-
-//Pass to route endpoints
-app.use("/customers", customersRouter);
+//Routes
+app.use("/departments", departmentsRouter);
 
 async function startup() {
     //On startup, create connection pool to the database

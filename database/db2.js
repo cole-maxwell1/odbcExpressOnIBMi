@@ -7,8 +7,8 @@ module.exports = class {
   static async connect(connectionString) {
     this.pool = await odbc.pool({
       connectionString,
-      initialSize: 5,
-      maxSize: 10,
+      initialSize: 5, // initial pool size (number of connections)
+      maxSize: 10, // max pool size (max number of connections)
     });
   }
 

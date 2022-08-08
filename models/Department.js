@@ -1,6 +1,6 @@
 module.exports = class Department {
     constructor(row) {
-      this.number = row.DEPTNO;
+      this.departmentNumber = row.DEPTNO;
       this.name = row.DEPTNAME;
       this.managerNumber = row.MGRNO;
       this.reportingDepartment = row.ADMRDEPT;

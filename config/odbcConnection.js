@@ -7,7 +7,7 @@ exports.fullConnectionString = [
   `UID=${process.env.DB_ID}`,
   `Password=${process.env.DB_PASSWORD}`,
   `Naming=0`,
-  `DBQ=,${process.env.LIB}`,
+  `DBQ=${process.env.LIB}`,
 ].join(`;`);
 
 //DSN connection string

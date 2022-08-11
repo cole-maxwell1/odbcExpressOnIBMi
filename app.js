@@ -5,6 +5,7 @@ app.use(express.json());
 
 //Route imports
 const departmentsRouter = require("./routes/departments");
+const employeesRouter = require("./routes/employees");
 
 //Database imports
 const dbConfig = require(`./config/odbcConnection`);
@@ -15,6 +16,7 @@ const port = process.env.PORT || 3000;
 
 //Routes
 app.use("/departments", departmentsRouter);
+app.use("/employees", employeesRouter);
 
 async function startup() {
     //On startup, create connection pool to the database

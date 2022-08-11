@@ -1,5 +1,5 @@
 # Node.js API on IBM i
-This is a demo Node.js API that can run on IBM i. It uses the [Open Database Connectivity (ODBC)](https://en.wikipedia.org/wiki/Open_Database_Connectivity) standard to connect to a Db2 for i and execute [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) opperations IBM's provided "[Sample Tables](https://www.ibm.com/docs/en/i/7.4?topic=tables-sample)".
+This is a demo Node.js API that can run on IBM i. It uses the [Open Database Connectivity (ODBC)](https://en.wikipedia.org/wiki/Open_Database_Connectivity) standard to connect to a Db2 for i and execute [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on IBM's provided "[Sample Tables](https://www.ibm.com/docs/en/i/7.4?topic=tables-sample)".
 # Getting Started
 1. You must have the ODBC driver installed on the IBM i you want to connect to. See Seiden Group’s guide for [Using YUM to Install or Update the IBM i ODBC Driver](https://www.seidengroup.com/2022/07/11/using-yum-to-install-or-update-the-ibm-i-odbc-driver/). If you are developing on a local Linux machine, or  **W**indows **S**ubsystem for **L**inux (WSL), you must also install the ODBC driver, see my [write-up](https://colemaxwell.dev/posts/ibmi-odbc-on-linux/) for instructions on how to install the ODBC driver on a local machine.
 
@@ -14,17 +14,28 @@ git clone https://github.com/cole-maxwell1/odbcExpressOnIBMi.git
 CALL QSYS.CREATE_SQL_SAMPLE ('SAMPLE');
 ```
 
-4. Make a `.env` file. Then copy the contents of `sample.env` into the the new `.env` file you just created. You will need to fill in the information specific to connecting via ODBC on your IBM i system after each `(=)`.
+4. Make a `.env` file. Then copy the contents of `sample.env` into the new `.env` file you just created. You will need to fill in the information specific to connecting to your IBM i system after each `(=)`.
 ```sh
 # Sample .env
 PORT=
 DB_HOST=
-DB_ID=
+DB_USER=
 DB_PASSWORD=
-DEBUG=
-LIB=
-DSN=
+DB_MIN_CONNECTIONS=
+DB_MAX_
+DB_LIB=
+DB_DSN=
 ```
+### Environment Variables
+* `PORT` - The network port the application listens on.
+* `DB_HOST` - The hostname or IP address of the IBM i system.
+* `DB_USER` - The user name to use when connecting to the IBM i system.
+* `DB_PASSWORD` - The password to use when connecting to the IBM i system.
+* `DB_MIN_CONNECTIONS` - The minimum number of connections to keep open to the IBM i system.
+* `DB_MAX_CONNECTIONS` - The maximum number of connections to keep open to the IBM i system.
+* `DB_LIB` - The library(s) to use when connecting to the IBM i system.
+* `DB_DSN` - The DSN to use when connecting to the IBM i system.
+
 5. Using a shell of your choice, open the project's root directory and install the `npm` dependencies.
 ```sh
 npm install

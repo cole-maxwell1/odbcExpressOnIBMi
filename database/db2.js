@@ -1,7 +1,5 @@
 const odbc = require("odbc");
 
-const debug = process.env.DEBUG === `true`;
-
 //Create a connection pool to the database 
 //that will be used by all the queries in the application.
 module.exports = class {

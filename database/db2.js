@@ -9,8 +9,8 @@ module.exports = class {
   static async connect(connectionString) {
     this.pool = await odbc.pool({
       connectionString, //The standard or DSN connection string
-      initialSize: 5, //initial pool size (number of connections)
-      maxSize: 10, //max pool size (max number of connections)
+      initialSize: process.env.DB_MIN_CONNECTIONS, //initial pool size (number of connections)
+      maxSize: process.env.DB_MAX_CONNECTIONS //max pool size (max number of connections)
     });
   }
 
@@ -24,4 +24,6 @@ module.exports = class {
   static query(sql, params = []) {
     return this.pool.query(sql, params);
   }
+
+  
 }

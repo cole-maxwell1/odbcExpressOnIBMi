@@ -17,14 +17,28 @@ CALL QSYS.CREATE_SQL_SAMPLE ('SAMPLE');
 4. Make a `.env` file. Then copy the contents of `sample.env` into the the new `.env` file you just created. You will need to fill in the information specific to connecting via ODBC on your IBM i system after each `(=)`.
 ```sh
 # Sample .env
+# Sample .env
 PORT=
 DB_HOST=
-DB_ID=
+DB_USER=
 DB_PASSWORD=
+DB_MIN_CONNECTIONS=
+DB_MAX_
+DB_LIB=
+DB_DSN=
 DEBUG=
-LIB=
-DSN=
 ```
+### Environment Variables
+* `PORT` - The network port the application listens on.
+* `DB_HOST` - The hostname or IP address of the IBM i system.
+* `DB_USER` - The user name to use when connecting to the IBM i system.
+* `DB_PASSWORD` - The password to use when connecting to the IBM i system.
+* `DB_MIN_CONNECTIONS` - The minimum number of connections to keep open to the IBM i system.
+* `DB_MAX_CONNECTIONS` - The maximum number of connections to keep open to the IBM i system.
+* `DB_LIB` - The library(s) to use when connecting to the IBM i system.
+* `DB_DSN` - The DSN to use when connecting to the IBM i system.
+* `DEBUG` - Whether or not to enable debug mode.
+
 5. Using a shell of your choice, open the project's root directory and install the `npm` dependencies.
 ```sh
 npm install

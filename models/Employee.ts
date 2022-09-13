@@ -1,4 +1,21 @@
 module.exports = class Employee {
+  employeeNumber: number;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  workDepartment: string;
+  phoneNumber: string;
+  hireDate: Date;
+  job: string;
+  educationLevel: number;
+  sex: string;
+  dateOfBirth: Date;
+  compensation: {
+    yearlySalary: number;
+    yearlyBonus: number;
+    yearlyCommission: number;
+  }
+
   constructor(row) {
     this.employeeNumber = row.EMPNO;
     this.firstName = row.FIRSTNME;

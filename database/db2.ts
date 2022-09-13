@@ -1,10 +1,11 @@
-const odbc = require("odbc");
+import { Pool } from "odbc";
 
 //Create a connection pool to the database 
 //that will be used by all the queries in the application.
 module.exports = class {
-  pool;
-  static async connect(connectionString) {
+  pool: Pool;
+  
+  static async connect(connectionString: string) {
     this.pool = await odbc.pool({
       connectionString, //The standard or DSN connection string
       initialSize: process.env.DB_MIN_CONNECTIONS, //initial pool size (number of connections)

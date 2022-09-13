@@ -1,4 +1,4 @@
-module.exports = class Employee {
+export class Employee {
   employeeNumber: number;
   firstName: string;
   middleName: string;
@@ -16,7 +16,7 @@ module.exports = class Employee {
     yearlyCommission: number;
   }
 
-  constructor(row) {
+  constructor(row: any) {
     this.employeeNumber = row.EMPNO;
     this.firstName = row.FIRSTNME;
     this.middleName = row.MIDINIT;

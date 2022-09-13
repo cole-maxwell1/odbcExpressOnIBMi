@@ -44,3 +44,17 @@ npm install
 ```sh
 npm start
 ```
+
+# Troubleshooting
+## Port is already in use
+If you are trying to run the `dev` script and you get an error that the port is in use, you can run the following command to kill the process that is using the port. Substitute `3000` for the one you are trying to use. Some times `nodemon` will not kill the process when you stop the server.
+
+```sh:
+lsof -i tcp:3000
+```
+
+Then copy the process ID (`PID`) of the process that is using the port and run the following command to kill the process.
+
+```sh
+kill -9 <PID>
+```
